@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SpecializationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/auth-login',[AdminController::class,'login']);
+Route::get('/dashboard',[AdminController::class,'dashboard']);
+Route::get('/specialization',[SpecializationController::class,'specialization']);
