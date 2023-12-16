@@ -114,9 +114,9 @@
         <i class="ti-angle-up"></i>
       </a>
     </div>
-    <script src="../assets/js/jquery1-3.4.1.min.js"></script>
+    <!-- <script src="../assets/js/jquery1-3.4.1.min.js"></script> -->
     <script src="../assets/js/popper1.min.js"></script>
-    <script src="../assets/js/bootstrap.min.html"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/metisMenu.js"></script>
     <script src="../assets/vendors/count_up/jquery.waypoints.min.js"></script>
     <script src="../assets/vendors/chartlist/Chart.min.js"></script>
@@ -155,5 +155,37 @@
     <script src="../assets/vendors/chart_am/chart-custom.js"></script>
     <script src="../assets/js/dashboard_init.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script> -->
+    
+    <script>
+      $('.close').click(function(){
+        var modalname = $(this).data('dismiss');
+        //alert(modalname);
+          $('.'+modalname).modal('hide');
+      })
+    </script>
+    <script>
+
+	// ClassicEditor
+	// 	.create( document.querySelector( '#description' ) )
+	// 	.catch( error => {
+	// 		console.error( error );
+	// 	} );
+</script>
+<script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
   </body>
 </html>

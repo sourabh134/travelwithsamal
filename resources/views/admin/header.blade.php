@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="../assets/css/metisMenu.css">
     <link rel="stylesheet" href="../assets/css/style1.css" />
     <link rel="stylesheet" href="../assets/css/colors/default.css" id="colorSkinCSS">
+    <script src="../assets/js/jquery1-3.4.1.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
   </head>
   <body class="crm_body_bg">
     <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
@@ -67,7 +69,13 @@
               <a href="{{url('/specialization')}}">Specialization</a>
             </li>
             <li>
-              <a href="mail_box.html">Hospitals</a>
+              <a href="{{url('/treatmentstype')}}">Treatmeants Type</a>
+            </li>
+            <li>
+              <a href="{{url('/treatments')}}">Treatmeants</a>
+            </li>
+            <li>
+              <a href="{{url('/hospital')}}">Hospitals</a>
             </li>
             <li>
               <a href="chat.html">Doctors</a>
@@ -501,7 +509,7 @@
                     <div class="profile_info_details">
                       <a href="#">My Profile </a>
                       <a href="#">Settings</a>
-                      <a href="#">Log Out </a>
+                      <a href="{{url('/logout')}}">Log Out </a>
                     </div>
                   </div>
                 </div>

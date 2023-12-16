@@ -38,14 +38,18 @@
                         <h5 class="modal-title text_white">Log in</h5>
                       </div>
                       <div class="modal-body">
-                        <form>
+                      <?php  if(Session::has('message')) { ?>
+                        <p class="alert alert-danger"><?php echo Session::get('message'); ?></p>
+                      <?php } ?>
+                        <form action="{{url('/adminLogin')}}" method="post">
+                        @csrf
                           <div class>
-                            <input type="text" class="form-control" placeholder="Enter your email">
+                            <input type="text" class="form-control" placeholder="Enter your email" name="username">
                           </div>
                           <div class>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="password">
                           </div>
-                          <a href="#" class="btn_1 full_width text-center">Log in</a>                          
+                          <button type="submit" class="btn_1 full_width text-center">Login</button>                                                   
                           <div class="text-center">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
                           </div>
