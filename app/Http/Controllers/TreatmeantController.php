@@ -4,25 +4,68 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Specialization;
+use App\Models\Treatmeant;
 
 class TreatmeantController extends Controller
 {
     public function treatmeants(Request $request){
         $data['title'] = "Treatmeants";
-        return view('admin/treatments',$data);
+        $data['treatmeant'] = Treatmeant::where('status',1)->get();
+        return view('admin/treatmeant',$data);
     }
 
     public function addTreatmeants(Request $request){
         $data['title'] = "Treatmeants";
-        return view('admin/addTreatments',$data);
-    }
-    public function treatmentstype(Request $request){
-        $data['title'] = "Treatmeants Type";
-        return view('admin/treatmentstype',$data);
+        $data['specialization'] = Specialization::where('status',1)->get();
+        return view('admin/addTreatmeant',$data);
     }
 
-    public function addTreatmentsType(Request $request){
-        $data['title'] = "Treatmeants Type";
-        return view('admin/addTreatmentsType',$data);
+    public function insert_treatmeants(Request $request){
+        if($request->id==""){
+            $check_name = Treatmeant::where('name',$request->name)->count();
+            if($check_name==0){
+                //image upload
+                $imageName = time().'.'.$request->image->extension();      
+                $request->image->move(public_path('images'), $imageName);
+                $treatmeant = new Treatmeant;
+                $treatmeant->name = $request->name;
+                $treatmeant->description = $request->descriptions;
+                $treatmeant->image = $imageName;
+                $treatmeant->status = 1;
+                $treatmeant->save();
+                echo 1;
+            }else{
+                echo 2;
+            }
+        }else{            
+            $check_name = Treatmeant::where('name',$request->name)->where('id',$request->id);
+            if($check_name->count() >= 1 && $request->id != $check_name->first()->id){
+                echo 2;
+            }else{
+                if($request->image!=''){
+                    $imageName = time().'.'.$request->image->extension();      
+                    $request->image->move(public_path('images'), $imageName);
+                }else{
+                    $imageName = '';
+                }
+                $treatmeant = new Treatmeant;
+                $treatmeant = Treatmeant::find($request->id);
+                $treatmeant->name = $request->name;
+                $treatmeant->description = $request->descriptions;
+                if($imageName!=''){
+                    $treatmeant->image = $imageName;
+                }                
+                $treatmeant->save();
+                echo 1;
+            }            
+        }
+        
+    }
+    public function delete_treatmeants(Request $request){
+        $id = $request->id;
+        $treatmeant = Treatmeant::find($id);
+        $treatmeant->status = 2;
+        $treatmeant->save();
     }
 }

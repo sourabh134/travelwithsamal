@@ -22,7 +22,7 @@
                     </div>
                   </div>
                   <div class="add_button ms-2">
-                    <a href="{{url('/addSpecialization')}}" class="btn_1">Add New</a>
+                    <a href="{{url('/addTreatments')}}" class="btn_1">Add New</a>
                   </div>
                 </div>
               </div>
@@ -32,6 +32,7 @@
                     <tr>
                       <th scope="col">S.No.</th>
                       <th scope="col">Image</th>
+                      <th scope="col">Speciality</th>
                       <th scope="col">Name</th>
                       <th scope="col">Content</th>
                       <th scope="col">Status</th>
@@ -42,13 +43,14 @@
                     @php
                     $i=1
                     @endphp
-                    @foreach($specialization as $value)
+                    @foreach($treatmeant as $value)
                     <tr>
                       <!-- <th scope="row">
                         <a href="#" class="question_content"> title here 1</a>
                       </th> -->
                       <td>{{$i}}</td>
                       <td><img src="../images/{{$value->image}}" alt="Image" width="100px"></td>
+                      <td><?php echo $sql = App\Models\Specialization::where('id',$value->specialityId)->first()->name;?></td>
                       <td>{{$value->name}}</td>
                       <td><?=substr($value->description,0,50)?>...</td>                      
                       <td>

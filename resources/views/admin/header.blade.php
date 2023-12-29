@@ -26,6 +26,12 @@
     <link rel="stylesheet" href="../assets/css/colors/default.css" id="colorSkinCSS">
     <script src="../assets/js/jquery1-3.4.1.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <style>
+      .displaynone{display:none !important;}
+      .hide1{display:none;}
+      .hide2{display:none;}
+      i.fa-trash{color:red}
+    </style>
   </head>
   <body class="crm_body_bg">
     <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
@@ -67,10 +73,7 @@
           <ul>
             <li>
               <a href="{{url('/specialization')}}">Specialization</a>
-            </li>
-            <li>
-              <a href="{{url('/treatmentstype')}}">Treatmeants Type</a>
-            </li>
+            </li>            
             <li>
               <a href="{{url('/treatments')}}">Treatmeants</a>
             </li>

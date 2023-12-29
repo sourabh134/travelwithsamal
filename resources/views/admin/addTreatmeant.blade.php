@@ -32,7 +32,7 @@
                                             <form method="post" id="saveform">
                                                 @csrf
                                                 <div class>
-                                                    <label>Specialization Name</label>
+                                                    <label>Treatmeant Name</label>
                                                     <input type="text" class="form-control name" name="name" placeholder="Specialization Name" value="<?php if(isset($data->id)){ echo $data->name;} ?>">
                                                 </div>
                                                 <div class>
@@ -44,6 +44,11 @@
                                                     <label>Description</label>
                                                     <textarea class="form-control description" name="description" placeholder="Description" id="description"><?php if(isset($data->id)){ echo $data->description;} ?></textarea>
                                                     <textarea class="displaynone" id="content" name="descriptions"></textarea>
+                                                </div>
+                                                <div class>
+                                                    <label>About</label>
+                                                    <textarea class="form-control about" name="about" placeholder="About" id="about"><?php if(isset($data->id)){ echo $data->description;} ?></textarea>
+                                                    <textarea class="displaynone" id="abouts" name="abouts"></textarea>
                                                 </div>
                                                 <input type="hidden" class="id" name="id" value="<?php if(isset($data->id)){ echo $data->id;} ?>">
                                                 <button type="button" class="btn_1 full_width text-center submitdata">Submit</button>
@@ -60,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <script>
+<script>
 
 var myEditor;
 
@@ -74,12 +79,27 @@ ClassicEditor
         console.error( err.stack );
     } );
 </script>
+<script>
+
+var myEditors;
+
+ClassicEditor
+    .create( document.querySelector( '#about' ) )
+    .then( editor => {
+        console.log( 'Editor was initialized', editor );
+        myEditors = editor;
+    } )
+    .catch( err => {
+        console.error( err.stack );
+    } );
+</script>
         <script>
             $('.submitdata').click(function(){
                 var name  = $('.name').val();
                 var file = $('.file').val();
                 var id = $('.id').val();
                 var description = myEditor.getData();
+                var about = myEditors.getData();
                 if(name=='' || name.length<5){
                     $('.name').css('border','1px solid red');
                 }else if(id=="" && file==""){                    
@@ -94,6 +114,7 @@ ClassicEditor
                     $('.file').css('border','');
                     $('.ck-editor').css('border','');
                     $('#content').val(description);
+                    $('#abouts').val(about);
                     //alert(description);
                     $.ajax({
                         type:'POST',
