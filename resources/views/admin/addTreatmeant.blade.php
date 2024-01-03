@@ -31,23 +31,32 @@
                                         <div class="modal-body">
                                             <form method="post" id="saveform">
                                                 @csrf
-                                                <div class>
-                                                    <label>Treatmeant Name</label>
-                                                    <input type="text" class="form-control name" name="name" placeholder="Specialization Name" value="<?php if(isset($data->id)){ echo $data->name;} ?>">
+                                                <div class="form-group">
+                                                    <label>Specialities</label>
+                                                    <select class="form-select" name="specialityId">
+                                                        <option value="">Choose</option>
+                                                        @foreach($specialization as $value)
+                                                        <option value="{{$value->id}}" <?php if(isset($data->id)){ if($value->id == $data->specialityId){ echo"selected"; }} ?>>{{$value->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
-                                                <div class>
+                                                <div class="form-group">
+                                                    <label>Treatmeant Name</label>
+                                                    <input type="text" class="form-control name" name="name" placeholder="Treatmeant Name" value="<?php if(isset($data->id)){ echo $data->name;} ?>">
+                                                </div>
+                                                <div class="form-group">
                                                     <label>Image</label>
                                                     <input type="file" class="form-control file" name="image" onchange="previewFile(this);">
                                                     <img id="previewImg" src="<?php if(isset($data->id)){ echo "../images/".$data->image;}else{ ?>../assets/img/image-preview.png<?php } ?>" alt="Placeholder" width="100px">
                                                 </div>
-                                                <div class>
+                                                <div class="form-group">
                                                     <label>Description</label>
                                                     <textarea class="form-control description" name="description" placeholder="Description" id="description"><?php if(isset($data->id)){ echo $data->description;} ?></textarea>
                                                     <textarea class="displaynone" id="content" name="descriptions"></textarea>
                                                 </div>
-                                                <div class>
+                                                <div class="form-group">
                                                     <label>About</label>
-                                                    <textarea class="form-control about" name="about" placeholder="About" id="about"><?php if(isset($data->id)){ echo $data->description;} ?></textarea>
+                                                    <textarea class="form-control about" name="about" placeholder="About" id="about"><?php if(isset($data->id)){ echo $data->content;} ?></textarea>
                                                     <textarea class="displaynone" id="abouts" name="abouts"></textarea>
                                                 </div>
                                                 <input type="hidden" class="id" name="id" value="<?php if(isset($data->id)){ echo $data->id;} ?>">
@@ -118,7 +127,7 @@ ClassicEditor
                     //alert(description);
                     $.ajax({
                         type:'POST',
-                        url:'{{url("/insert_specialization")}}',
+                        url:'{{url("/insert_treatmeants")}}',
                         data  :new FormData( $("#saveform")[0] ),
                         async   : false,
                         cache   : false,
@@ -130,7 +139,7 @@ ClassicEditor
                             $('.hide1').css('display','block');
                             $('.msg_success').text("Sucessfully submitted");
                             $(".alert-success").show('slow' , 'linear').delay(4000).fadeOut(function(){
-                               window.location.href="{{URL::to('/specialization')}}";
+                               window.location.href="{{URL::to('/treatments')}}";
                             });
 
                             }

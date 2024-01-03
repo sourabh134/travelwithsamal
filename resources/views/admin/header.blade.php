@@ -78,7 +78,7 @@
               <a href="{{url('/treatments')}}">Treatmeants</a>
             </li>
             <li>
-              <a href="{{url('/hospital')}}">Hospitals</a>
+              <a href="{{url('/hospitals')}}">Hospitals</a>
             </li>
             <li>
               <a href="chat.html">Doctors</a>

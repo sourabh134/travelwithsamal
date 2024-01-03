@@ -18,6 +18,8 @@ class TreatmeantController extends Controller
     public function addTreatmeants(Request $request){
         $data['title'] = "Treatmeants";
         $data['specialization'] = Specialization::where('status',1)->get();
+        $id = base64_decode($request->key);
+        $data['data'] = Treatmeant::find($id);
         return view('admin/addTreatmeant',$data);
     }
 
@@ -29,8 +31,10 @@ class TreatmeantController extends Controller
                 $imageName = time().'.'.$request->image->extension();      
                 $request->image->move(public_path('images'), $imageName);
                 $treatmeant = new Treatmeant;
+                $treatmeant->specialityId = $request->specialityId;
                 $treatmeant->name = $request->name;
                 $treatmeant->description = $request->descriptions;
+                $treatmeant->content = $request->abouts;
                 $treatmeant->image = $imageName;
                 $treatmeant->status = 1;
                 $treatmeant->save();
@@ -51,8 +55,10 @@ class TreatmeantController extends Controller
                 }
                 $treatmeant = new Treatmeant;
                 $treatmeant = Treatmeant::find($request->id);
+                $treatmeant->specialityId = $request->specialityId;
                 $treatmeant->name = $request->name;
                 $treatmeant->description = $request->descriptions;
+                $treatmeant->content = $request->abouts;
                 if($imageName!=''){
                     $treatmeant->image = $imageName;
                 }                

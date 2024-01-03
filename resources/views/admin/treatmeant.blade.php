@@ -56,7 +56,7 @@
                       <td>
                         <a href="#" class="status_btn">Active</a>
                       </td>
-                      <td><a href="{{url('/addSpecialization?key='.base64_encode($value->id))}}"><i class="fa fa-edit"></i></a> | <a class="delete" data-id="{{$value->id}}"><i class="fa fa-trash"></i></a></td>
+                      <td><a href="{{url('/addTreatments?key='.base64_encode($value->id))}}"><i class="fa fa-edit"></i></a> | <a class="delete" data-id="{{$value->id}}"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     @php
                     $i++
@@ -80,7 +80,7 @@
     if(confirm("Are you sure want to delete this?")){
       $.ajax({
           type:'POST',
-          url:'{{url("/delete_specialization")}}',
+          url:'{{url("/delete_treatmeants")}}',
           data  :{id:id,_token:token},          
           success:function(data){
             location.reload();
