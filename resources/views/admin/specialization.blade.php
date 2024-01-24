@@ -7,7 +7,7 @@
           <div class="white_card_header">
             <div class="box_header m-0">
               <div class="main-title">
-                <h3 class="m-0">{{$title}}</h3>
+                <h4 class="m-0">{{$title}}</h4>
               </div>
             </div>
           </div>
@@ -15,6 +15,9 @@
             <div class="QA_section">
               <div class="white_box_tittle list_header">
                 <h4></h4>
+                @if(Session::has('success'))
+                <div class="alert alert-success text-center" style="margin-right: -400px;">Success!! <span class="msg_success">{{Session::get('success')}}</span></div>
+                @endif
                 <div class="box_right d-flex lms_block">
                   <div class="serach_field_2">
                     <div class="search_inner">
@@ -48,11 +51,15 @@
                         <a href="#" class="question_content"> title here 1</a>
                       </th> -->
                       <td>{{$i}}</td>
-                      <td><img src="../images/{{$value->image}}" alt="Image" width="100px"></td>
+                      <td><img src="{{asset('public/images')}}/{{$value->image}}" alt="Image" width="100px"></td>
                       <td>{{$value->name}}</td>
                       <td><?=substr($value->description,0,50)?>...</td>                      
                       <td>
-                        <a href="#" class="status_btn">Active</a>
+                        <?php if($value->status==1){?>
+                        <a href="{{url('specialization_status?key='.base64_encode($value->id))}}" class="status_btn">Active</a>
+                      <?php }else {?>
+                        <a href="{{url('specialization_status?key='.base64_encode($value->id))}}" class="status_btn" style="background:#d32b05">In-active</a>
+                      <?php } ?>
                       </td>
                       <td><a href="{{url('/addSpecialization?key='.base64_encode($value->id))}}"><i class="fa fa-edit"></i></a> | <a class="delete" data-id="{{$value->id}}"><i class="fa fa-trash"></i></a></td>
                     </tr>
@@ -87,5 +94,10 @@
       });
     }    
   })
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".alert-success").fadeOut(800);
+  });
 </script>
  @include('admin.footer')

@@ -11,7 +11,7 @@ class TreatmeantController extends Controller
 {
     public function treatmeants(Request $request){
         $data['title'] = "Treatmeants";
-        $data['treatmeant'] = Treatmeant::where('status',1)->get();
+        $data['treatmeant'] = Treatmeant::whereNot('status',2)->get();
         return view('admin/treatmeant',$data);
     }
 
@@ -27,7 +27,6 @@ class TreatmeantController extends Controller
         if($request->id==""){
             $check_name = Treatmeant::where('name',$request->name)->count();
             if($check_name==0){
-                //image upload
                 $imageName = time().'.'.$request->image->extension();      
                 $request->image->move(public_path('images'), $imageName);
                 $treatmeant = new Treatmeant;
@@ -73,5 +72,18 @@ class TreatmeantController extends Controller
         $treatmeant = Treatmeant::find($id);
         $treatmeant->status = 2;
         $treatmeant->save();
+    }
+    public function treatmeant_status(Request $request){
+         $id=base64_decode($request->key);
+        $specialization = Treatmeant::find($id);
+        if($specialization->status==1){
+            $status=0;
+        }
+        else{
+            $status=1;
+        }
+        $specialization->status = $status;
+        $specialization->save();
+        return redirect()->back()->with('success','Treatmeant Status Changed');
     }
 }

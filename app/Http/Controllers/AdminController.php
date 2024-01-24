@@ -8,6 +8,7 @@ use Session;
 use Hash;
 use App\Models\Admin;
 
+
 class AdminController extends Controller
 {
     public function login(Request $request){
@@ -65,4 +66,44 @@ class AdminController extends Controller
         echo "done";
 
     }
+    public function adminProfile(){
+        $data['title']="Admin";
+        $data['admin']=Admin::find(1);
+        return view('admin/adminProfile',$data);
+    }
+    public function updateAdmin(Request $request){
+        
+        if($request->profile_picture !=''){
+            $imageName = time().'.'.$request->profile_picture->extension();      
+            $request->profile_picture->move(public_path('images/admin'), $imageName);
+        }else {
+         $imageName =$request->old_image;
+        }
+        $admin=Admin::find(1);
+        $admin->name=$request->name;
+        $admin->email=$request->email;
+        $admin->phone=$request->phone_number;
+        $admin->logo=$imageName;
+        $admin->save();
+        echo "done";
+
+    }
+    public function changPassword(){
+        $data['title']="Chane Password";
+        $data['admin']=Admin::find(1);
+        return view('admin/changePassword',$data);
+    }
+    public function savePassword(Request $request){
+         $admin=Admin::find(1);
+         if(Hash::check($request->old_pass, $admin->password)){
+            $admin = Admin::find(1);
+            $admin->password = Hash::make($request->conf_pass);
+            $admin->save();
+            echo "done";
+            
+         }else{
+            echo "invalid_pass";
+         }
+    }
+    
 }

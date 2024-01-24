@@ -10,7 +10,7 @@ class SpecializationController extends Controller
 {
     public function specialization(Request $request){
         $data['title'] = "Specialization";
-        $data['specialization'] = Specialization::where('status',1)->get();
+        $data['specialization'] = Specialization::whereNot('status',2)->get();
         return view('admin/specialization',$data);
     }
 
@@ -68,5 +68,18 @@ class SpecializationController extends Controller
         $specialization = Specialization::find($id);
         $specialization->status = 2;
         $specialization->save();
+    }
+    public function specialization_status(Request $request){
+        $id=base64_decode($request->key);
+        $specialization = Specialization::find($id);
+        if($specialization->status==1){
+            $status=0;
+        }
+        else{
+            $status=1;
+        }
+        $specialization->status = $status;
+        $specialization->save();
+        return redirect()->back()->with('success','Specialization Status Changed');
     }
 }

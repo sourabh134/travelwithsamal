@@ -5,26 +5,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>{{$title}}</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap1.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/themefy_icon/themify-icons.css" />
-    <link rel="stylesheet" href="../assets/vendors/niceselect/css/nice-select.css" />
-    <link rel="stylesheet" href="../assets/vendors/owl_carousel/css/owl.carousel.css" />
-    <link rel="stylesheet" href="../assets/vendors/gijgo/gijgo.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/font_awesome/css/all.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/tagsinput/tagsinput.css" />
-    <link rel="stylesheet" href="../assets/vendors/datepicker/date-picker.css" />
-    <link rel="stylesheet" href="../assets/vendors/vectormap-home/vectormap-2.0.2.css" />
-    <link rel="stylesheet" href="../assets/vendors/scroll/scrollable.css" />
-    <link rel="stylesheet" href="../assets/vendors/datatable/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/datatable/css/responsive.dataTables.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/datatable/css/buttons.dataTables.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/text_editor/summernote-bs4.css" />
-    <link rel="stylesheet" href="../assets/vendors/morris/morris.css">
-    <link rel="stylesheet" href="../assets/vendors/material_icon/material-icons.css" />
-    <link rel="stylesheet" href="../assets/css/metisMenu.css">
-    <link rel="stylesheet" href="../assets/css/style1.css" />
-    <link rel="stylesheet" href="../assets/css/colors/default.css" id="colorSkinCSS">
-    <script src="../assets/js/jquery1-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="{{asset('public/assets/css/bootstrap1.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/themefy_icon/themify-icons.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/niceselect/css/nice-select.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/owl_carousel/css/owl.carousel.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/gijgo/gijgo.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/font_awesome/css/all.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/tagsinput/tagsinput.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/datepicker/date-picker.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/vectormap-home/vectormap-2.0.2.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/scroll/scrollable.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/datatable/css/jquery.dataTables.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/datatable/css/responsive.dataTables.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/datatable/css/buttons.dataTables.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/text_editor/summernote-bs4.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/morris/morris.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/vendors/material_icon/material-icons.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/css/metisMenu.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/css/style1.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/css/colors/default.css')}}" id="colorSkinCSS">
+    <script src="{{asset('public/assets/js/jquery1-3.4.1.min.js')}}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
     <style>
       .displaynone{display:none !important;}
@@ -37,7 +37,7 @@
     <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
       <div class="logo d-flex justify-content-between">
         <a href="{{url('/dashboard')}}">
-          <img src="../assets/img/logo-web.png" alt>
+          <img src="{{ asset("public/assets/img/logo2.png") }}" alt>
         </a>
         <div class="sidebar_close_icon d-lg-none">
           <i class="ti-close"></i>
@@ -47,7 +47,7 @@
         <li class="mm-active">
           <a class="" href="{{url('/dashboard')}}" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/dashboard.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/dashboard.svg')}}" alt>
             </div>
             <span>Dashboard</span>
           </a>
@@ -66,7 +66,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/2.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/2.svg')}}" alt>
             </div>
             <span>Master</span>
           </a>
@@ -81,26 +81,41 @@
               <a href="{{url('/hospitals')}}">Hospitals</a>
             </li>
             <li>
-              <a href="chat.html">Doctors</a>
+              <a href="{{url('/doctors')}}">Doctors</a>
             </li>
             <li>
-              <a href="faq.html">FAQ</a>
+              <a href="{{url('/blogs')}}">Blog</a>
+            </li>
+            <li>
+              <a href="{{url('/patients')}}">Patient</a>
+            </li> 
+            <li>
+              <a href="{{url('/complaints')}}">Complaint</a>
+            </li>
+            <li>
+              <a href="{{url('/patientContact')}}">Contact Inquiries</a>
+            </li>
+            <li>
+              <a href="{{url('/testimonials')}}">Testimonials</a>
+            </li>
+            <li>
+              <a href="{{url('/Notification')}}">Send Notifications</a>
             </li>
           </ul>
         </li>
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/3.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/3.svg')}}" alt>
             </div>
-            <span>UI Kits</span>
+            <span>Others</span>
           </a>
           <ul>
             <li>
-              <a href="colors.html">colors</a>
+              <a href="{{url('/tearmCondition')}}">T&C</a>
             </li>
             <li>
-              <a href="Alerts.html">Alerts</a>
+              <a href="{{url('/privacyPolicy')}}">Privacy & Policy</a>
             </li>
             <li>
               <a href="buttons.html">Buttons</a>
@@ -131,7 +146,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/4.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/4.svg')}}" alt>
             </div>
             <span>forms</span>
           </a>
@@ -153,7 +168,7 @@
         <li class>
           <a href="Board.html" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/5.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/5.svg')}}" alt>
             </div>
             <span>Board</span>
           </a>
@@ -161,7 +176,7 @@
         <li class>
           <a href="invoice.html" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/6.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/6.svg')}}" alt>
             </div>
             <span>Invoice</span>
           </a>
@@ -169,7 +184,7 @@
         <li class>
           <a href="calender.html" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/7.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/7.svg')}}" alt>
             </div>
             <span>Calander</span>
           </a>
@@ -177,7 +192,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/8.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/8.svg')}}" alt>
             </div>
             <span>Products</span>
           </a>
@@ -199,7 +214,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/8.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/8.svg')}}" alt>
             </div>
             <span>Icons</span>
           </a>
@@ -215,7 +230,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/9.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/9.svg')}}" alt>
             </div>
             <span>Animations</span>
           </a>
@@ -234,7 +249,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/10.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/10.svg')}}" alt>
             </div>
             <span>Components</span>
           </a>
@@ -259,7 +274,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/11.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/11.svg')}}" alt>
             </div>
             <span>Table</span>
           </a>
@@ -275,7 +290,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/12.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/12.svg')}}" alt>
             </div>
             <span>Cards</span>
           </a>
@@ -294,7 +309,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/13.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/13.svg')}}" alt>
             </div>
             <span>Charts</span>
           </a>
@@ -319,7 +334,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/14.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/14.svg')}}" alt>
             </div>
             <span>Widgets</span>
           </a>
@@ -335,7 +350,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/15.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/15.svg')}}" alt>
             </div>
             <span>Maps</span>
           </a>
@@ -351,7 +366,7 @@
         <li class>
           <a class="has-arrow" href="#" aria-expanded="false">
             <div class="icon_menu">
-              <img src="../assets/img/menu-icon/16.svg" alt>
+              <img src="{{asset('public/assets/img/menu-icon/16.svg')}}" alt>
             </div>
             <span>Pages</span>
           </a>
@@ -502,16 +517,17 @@
                     </a>
                   </li> -->
                 </div>
+                <?php $admin=App\Models\Admin::find(1);?>
                 <div class="profile_info">
-                  <img src="../assets/img/client_img.png" alt="#">
+                  <img src="{{asset('public/images/admin')}}/{{$admin->logo}}" alt="#">
                   <div class="profile_info_iner">
                     <div class="profile_author_name">
-                      <p>Admin </p>
+                      <p><?= $admin->name ?> </p>
                       <!-- <h5>Dr. Robar Smith</h5> -->
                     </div>
                     <div class="profile_info_details">
-                      <a href="#">My Profile </a>
-                      <a href="#">Settings</a>
+                      <a href="{{url('adminProfile')}}">My Profile </a>
+                      <a href="{{url('changPassword')}}">Settings</a>
                       <a href="{{url('/logout')}}">Log Out </a>
                     </div>
                   </div>

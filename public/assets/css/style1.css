@@ -1487,7 +1487,7 @@ th:focus {
 }
 
 .cs_modal .modal-header {
-    background-color: #f7faff;
+    background-color: #345189;
     padding: 23px 30px;
     border-bottom: 0 solid transparent
 }
@@ -2919,15 +2919,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child::before {
 }
 
 .header_iner {
-    background-color: #fff;
+    
     position: fixed;
     top: 0;
     z-index: 99;
-    padding: 30px;
+    padding: 20px;
     position: relative;
     border-radius: 0;
     margin: 0;
-    background: #fff;
+    background: #213f77;
     border-radius: 0
 }
 
@@ -3507,7 +3507,7 @@ table.dataTable {
     overflow: hidden;
     overflow-y: auto;
     transition: .5s;
-    background: #fff;
+    background: #213f77;
     box-shadow: 0 12px 30px rgba(80, 143, 244, .1)
 }
 
@@ -3541,14 +3541,15 @@ table.dataTable {
 }
 
 .sidebar .logo {
-    margin: 30px;
-    background: #fff;
-    border-radius: 7px;
-    padding-bottom: 20px
+    margin: 0px 0px 0px 59px;
+    /*background: #fff;*/
+    /*border-radius: 7px;*/
+    /*padding-bottom: 20px*/
 }
 
 .sidebar .logo img {
-    width: 100%
+    width: 100%;
+    height: 69px;
 }
 
 @media(max-width:991px) {
@@ -3799,7 +3800,7 @@ table.dataTable {
 .sidebar #sidebar_menu>li a {
     font-size: 16px;
     font-weight: 400;
-    color: #144339;
+    color: #f8f8f8;
     padding: 0 25px 0 0;
     margin-left: 30px;
     background: #fff;
@@ -3845,13 +3846,13 @@ table.dataTable {
 }
 
 .sidebar #sidebar_menu>li>a {
-    color: #144339
+    color: #ffffff
 }
 
 .sidebar #sidebar_menu>li.mm-active>a {
     background: #fff;
     border-radius: 30px;
-    color: #144339;
+    color: #ffffff;
     border-radius: 4px 4px 0 0;
     background: 0 0
 }
@@ -3893,7 +3894,7 @@ table.dataTable {
 
 .sidebar #sidebar_menu>li ul li a {
     font-size: 14px;
-    color: #8890b5;
+    color: #c4ceff;
     font-weight: 400;
     padding: 0;
     white-space: nowrap;
@@ -11303,3 +11304,76 @@ a.pswp__share--download:hover {
     display: inline-block;
     margin-right: 8px
 }
+
+   
+.upload__inputfile {
+      width: .1px;
+      height: .1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    
+    .upload__btn {
+        display: inline-block;
+        font-weight: 600;
+        color: #4a4d51;
+        text-align: center;
+        min-width: 116px;
+        padding: 18px;
+        transition: all .3s ease;
+        cursor: pointer;
+        border: 1px solid;
+        background-color: #ffffff;
+        border-color: #bbbcbe;
+        border-radius: 10px;
+        line-height: 16px;
+        font-size: 14px;
+    }
+      
+    .upload__btn:hover {
+        background-color: unset;
+        color: #4045ba;
+        transition: all .3s ease;
+      }
+      
+      .upload__btn-box {
+        margin-bottom: 10px;
+      }
+    
+    
+        .upload__img-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+      }
+      
+      .upload__img-box {
+        width: 200px;
+        padding: 0 10px;
+        margin-bottom: 12px;
+      }
+      
+      .upload__img-close {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.5);
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          text-align: center;
+          line-height: 24px;
+          z-index: 1;
+          cursor: pointer;
+  
+          .upload__img:after {
+            content: '\2716';
+            font-size: 14px;
+            color: white;
+          }
+        }
+    
+  
+  
