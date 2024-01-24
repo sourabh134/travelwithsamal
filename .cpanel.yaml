@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/weritrrt/public_html/travelwithsamal/
+    - /bin/cp index.html $DEPLOYPATH
