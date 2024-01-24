@@ -1,4 +1,5 @@
 <?php
+echo 1;
 
 /**
  * Laravel - A PHP Framework For Web Artisans
