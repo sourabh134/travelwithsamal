@@ -19,7 +19,7 @@ class CheckLogin
         $adminPassword = $request->session()->get('adminPassword');
         if($adminUser=="" AND  $adminPassword=="")
         {
-            return redirect('/auth-login');
+            return redirect('/admin');
         }
         return $next($request);
     }
